@@ -4,4 +4,25 @@
 @import "page";
 @import "thumb";
 
+dimensions(maxWidth,maxHeight,header,footer,pagetitleHeight,margins,modalHeight)
+	mainHeight = (maxHeight - header - footer);
+	contentHeight = (mainHeight - pageTitleHeight);
+	#Body
+		width:maxWidth
+		height:maxHeight
+	.maxHeight, .page
+		height: mainHeight
+	.page-title
+		height: pageTitleHeight
+	.page-content
+		padding-top: pageTitleHeight
+		min-height: contentHeight
+	.valign-content
+		top:- modalHeight;
+		height: modalHeight * 2;
+	.content
+		padding:margins;
+	.modal-content
+		width:maxWidth;
+
 dimensions(maxWidth,maxHeight,headerHeight,footerHeight,pageTitleHeight,margins,50%);

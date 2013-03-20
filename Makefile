@@ -66,9 +66,9 @@ js-clean:
 	@rm $(OUT)/**/*.js ||:
 
 build-dirs:
-	@mkdir -p -v $(OUT)/components/
-	@mkdir -p -v $(OUT)/components/requirejs
-	@mkdir -p -v $(OUT)/components/jquery
+	@mkdir -p $(OUT)/components/
+	@mkdir -p $(OUT)/components/requirejs
+	@mkdir -p $(OUT)/components/jquery
 
 serve:
 	node ./serve $(OUT) $(PORT)
