@@ -1,0 +1,13 @@
+{
+  "name": "mozmob",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "~1.9.1",
+    "requirejs": "~2.1.5"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}

@@ -1,0 +1,23 @@
+mixin modal(content,id)
+	.modal.container(id=id?id:'')
+			.modal-wrapper.valign-container
+				.valign-content
+					.modal-content
+						.content= content
+						a.modal-close.btn.btn-big x
+
+mixin img(src,title,width,height,realSrc,classes)
+	if !title
+		- title = src.split('.');
+		- title.pop();
+		- title = title.join('.');
+	if !realSrc
+		img(alt=title, width=width||'',height=height||'',class=classes||'',src=src)
+	else
+		img(alt=title, width=width||'',height=height||'',class=classes||'',data-src=src,src="")
+
+mixin js(s,external)
+	script(type="text/javascript", src=s+".js")
+
+mixin css(c)
+	link(rel='stylesheet',type='text/css',href=c+".css")

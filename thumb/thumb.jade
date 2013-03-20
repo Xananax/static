@@ -1,0 +1,48 @@
+include ../mixins/mixins
+
+mixin thumb-image(item,isThumb,id,classes)
+	- var itemImage = isThumb ? "4.jpg" : "7.jpg"
+	- var width = isThumb ? "176" : "360";
+	- var height = isThumb ? "132" : "204";
+	- var className = 'thumb-image-'+(isThumb ? 'small' : 'big');
+	- var src = 'http://cinemoz.com/media/cinemoz/'+item.id+'/'+itemImage;
+	a.thumb-link(href='#'+item.id,id=id||'',class=classes||'')
+		mixin img(src,item.title,width,height,'',className)
+
+mixin thumb-link(item,classes,id)
+	a.thumb-link(href='#'+item.id,id=id||'',class=classes||'')
+
+mixin thumb(item,i,count)
+	.thumb-container.container.wrapper(id=item.id+'-item',class="item-"+i+" item-"+(i==0? 'first' : (i==count-1)? 'last' : 'middle'))
+		.thumb-content
+				.thumb-media
+					if item.media
+						mixin thumb-image(item,0)
+						mixin thumb-image(item,1)
+				.thumb-info
+					.thumb-title
+						mixin thumb-link(item)
+							item.title
+					p: strong
+						if item.actor
+							each a in item.actor
+								span.actor=a
+						if item.category
+							each c in item.category
+								span.category=c
+						if item.country
+							span.country=item.country
+						if item.director
+							each d in item.director
+								span.director=d
+						if item.genre
+							each g in item.genre
+								span.genre=g
+						if item.serie
+							span.serie=item.serie
+						if item.length
+							span.length=item.length
+						if item.year
+							span.year=item.year
+					if item.synopsis
+						p.synopsis=item.synopsis

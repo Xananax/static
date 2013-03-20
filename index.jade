@@ -1,0 +1,22 @@
+include mixins/mixins
+
+doctype 5
+html(lang="en")
+	head
+		include header/header		
+	body
+		#Body
+			#Header.container
+				#Logo
+			#Pages.container.maxHeight
+				for page,i in pages
+					include page/page
+			#Footer.container
+			#Navigation.container
+				for page,i in pages
+					- if(!page.menu){continue;}
+					a.page-link(id=page.id+'-link',
+						class="item-"+i+" item-"+(i==0? 'first active' : (i==pages.length-1)? 'last' : 'middle'),
+						href="#"+page.id
+					)= page.menuTitle
+		mixin modal(loading,'Loading')

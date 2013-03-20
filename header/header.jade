@@ -1,0 +1,12 @@
+include icons
+include meta
+include ../mixins/mixins
+
+each c in css
+	mixin css(c)
+each s in scripts
+	mixin js(s)
+//if IE
+	js("http://html5shiv.googlecode.com/svn/trunk/html5",1)
+script(data-main="main.js", src="components/requirejs/require.js")
+title= title

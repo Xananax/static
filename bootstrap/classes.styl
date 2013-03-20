@@ -1,0 +1,64 @@
+.container
+	width:100%
+	min-height:20px
+	position:relative
+
+.wrapper
+	overflow-y:scroll;
+
+.content
+	width:100%
+	height:100%
+	line-height:2
+	border-box()
+
+.btn
+	display:block
+	font-size:smallButtonSize
+	line-height:0.5
+	margin:0
+	padding:(smallButtonSize/2)
+	text-align:center
+	cursor:pointer
+	background:green
+	border-radius smallButtonSize
+	border-size:1px
+	border-box()
+.btn-big
+		border-radius bigButtonSize
+		padding:(bigButtonSize/2);
+		font-size:bigButtonSize;
+
+.valign-container
+	position:absolute;
+	width:100%;
+	top:50%;
+	height:50%;
+
+.valign-content
+	position:absolute;
+	margin:0 auto;
+	width:100%;
+
+.modal
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background:modalBackgroundOverlay;
+.modal-content
+	position:relative;
+	height:100%;
+	margin:0 auto;
+	background:modalBackground;
+	border-radius modalBorderRadius;
+.modal-close
+	position:absolute;
+	top:- (closeButtonSize /2);
+	right:- (closeButtonSize/2);
+
+.togglable,.modal
+	display:none;
+	&.active
+		display:block;

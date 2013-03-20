@@ -1,0 +1,9 @@
+.page.togglable.maxHeight(id=page.id+'-page',class="item-"+i+" item-"+(i==0? 'first active' : (i==pages.length-1)? 'last' : 'middle'))
+	h1.page-title(id=page.id+'-title')
+	.page-content.container.wrapper.maxHeight(id=page.id+'-content')
+		if page.template == 'text'
+			include text
+		if page.template == 'items'
+			include items
+		if page.template == 'account'
+			include account
