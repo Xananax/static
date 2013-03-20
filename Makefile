@@ -4,11 +4,11 @@ CONFIG = $(IN)/config
 PORT = 8888
 NODE_BIN = ./node_modules/.bin
 
-all: clean html css js
+all: clean html css js images
 
-debug: clean html-debug css-debug js-debug
+debug: clean html-debug css-debug js-debug images
 
-watch: clean html-watch css-watch js-watch serve
+watch: clean html-watch css-watch js-watch images serve
 
 html:
 	@echo "compiling minified html"
@@ -63,16 +63,23 @@ js-statics: build-dirs
 js-clean:
 	echo "cleaning out js files"
 	@rm $(OUT)/*.js ||:
-	@rm $(OUT)/**/*.js ||:
+	@rm -r $(OUT)/**/*.js ||:
+
+serve:
+	node ./serve $(OUT) $(PORT)
+
+clean: html-clean css-clean js-clean images-clean
 
 build-dirs:
 	@mkdir -p $(OUT)/components/
 	@mkdir -p $(OUT)/components/requirejs
 	@mkdir -p $(OUT)/components/jquery
 
-serve:
-	node ./serve $(OUT) $(PORT)
+images:
+	cp -r $(IN)/images $(OUT)
 
-clean: html-clean css-clean js-clean
+images-clean:
+	echo "cleaning out images"
+	@rm -r $(OUT)/images ||:
 
-.PHONY: clean serve
+.PHONY: clean serve images

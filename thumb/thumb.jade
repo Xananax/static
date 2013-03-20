@@ -7,7 +7,7 @@ mixin thumb-image(item,isThumb,id,classes)
 	- var className = 'thumb-image-'+(isThumb ? 'small' : 'big');
 	- var src = 'http://cinemoz.com/media/cinemoz/'+item.id+'/'+itemImage;
 	a.thumb-link(href='#'+item.id,id=id||'',class=classes||'')
-		mixin img(src,item.title,width,height,'',className)
+		mixin img(src,item.title,width,height,className,1)
 
 mixin thumb-link(item,classes,id)
 	a.thumb-link(href='#'+item.id,id=id||'',class=classes||'')
