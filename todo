@@ -1,0 +1,7 @@
+thumb/index.styl
+	> add all categories classes
+
+- implement forward buttons and use weld or similar
+- get data from server
+- phonegap
+- user login

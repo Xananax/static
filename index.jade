@@ -1,22 +1,26 @@
 include mixins/mixins
 
 doctype 5
-html(lang="en")
+html(lang="ar", dir="rtl")
 	head
 		include header/header		
 	body
 		#Body
-			#Header.container
+			#Header.container.top
 				#Logo
+					a(href="#featured")
+						img(src='images/logo.png',alt="سينموز",width=150,height=42)
+				#Back-Container
+					a#Back.btn.btn-round-right(href="#") &rsaquo;
 			#Pages.container.maxHeight
 				for page,i in pages
 					include page/page
-			#Footer.container
-			#Navigation.container
-				for page,i in pages
-					- if(!page.menu){continue;}
-					a.page-link(id=page.id+'-link',
-						class="item-"+i+" item-"+(i==0? 'first active' : (i==pages.length-1)? 'last' : 'middle'),
-						href="#"+page.id
-					)= page.menuTitle
+			#Footer.container.bottom
+				#Navigation.container
+					for page,i in pages
+						- if(!page.menu){continue;}
+						a.btn.page-link(id=page.id+'-link',
+							class="item-"+i+" item-"+(i==0? 'first active' : (i==pages.length-1)? 'last' : 'middle'),
+							href="#"+page.id
+						)= page.menuTitle
 		mixin modal(loading,'Loading')

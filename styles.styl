@@ -1,28 +1,149 @@
-@import "config";
+headerHeight = 30px;
+footerHeight = 30px;
+maxWidth = 320px;
+margins = 10px;
+pageTitleHeight = 50px;
+modalBackgroundOverlay = rgba(0,0,0,0.5);
+modalBackground = rgba(255,255,255,1);
+modalBorderRadius = 5px;
+bigButtonSize = 30px;
+smallButtonSize = 16px;
+closeButtonSize = bigButtonSize;
+thumbnailRowHeight = 25px;
+thumbnailHeight = (3*thumbnailRowHeight);
+thumbnailWidth = 100px;
+thumbnailDetailsMargin = 2px;
+thumbnailTimeBackgroundColor = rgba(0,0,0,.5);
+thumbnailLargeHeight = (4*thumbnailRowHeight);
+pageBakgroundColor = white;
+pageTitleColor = rgba(0,0,0,.3);
+headerBackgroundColor = rgba(255,0,0,1);
+footerBackgroundColor = rgba(255,0,0,1);
+baseFontSize = 16px;
+titleFont = 'Droid Arabic Kufi', Helvetica, Arial, sans-serif
+bodyFont = 'Droid Arabic Naskh', Helvetica, Arial, sans-serif
+modalHeight = 50%;
+buttonFrontColor = white;
+buttonBackColor = black;
+buttonHoverFrontColor = black;
+buttonHoverBackColor = rgba(255, 181, 9,1)
+
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
 @import "mixins";
 @import "bootstrap";
 @import "page";
 @import "thumb";
+@import "header";
 
-dimensions(maxWidth,maxHeight,header,footer,pagetitleHeight,margins,modalHeight)
-	mainHeight = (maxHeight - header - footer);
-	contentHeight = (mainHeight - pageTitleHeight);
-	#Body
-		width:maxWidth
-		height:maxHeight
-	.maxHeight, .page
-		height: mainHeight
+dimensions()
+	//mainHeight = (maxHeight - headerHeight - footerHeight);
+	//contentHeight = (mainHeight - pageTitleHeight);
+	body
+		font-size:baseFontSize
+	#Pages
+		top:headerHeight
+		bottom:footerHeight
 	.page-title
 		height: pageTitleHeight
 	.page-content
 		padding-top: pageTitleHeight
-		min-height: contentHeight
 	.valign-content
 		top:- modalHeight;
 		height: modalHeight * 2;
-	.content
-		padding:margins;
 	.modal-content
 		width:maxWidth;
+	.thumb-media
+		width:thumbnailWidth
+	.thumb-info
+		right: (thumbnailWidth + thumbnailDetailsMargin)
+	.length-container
+		right:-  (thumbnailWidth + thumbnailDetailsMargin);
+	#Footer
+		height:footerHeight
+	#Header
+		height:footerHeight
+	.btn
+		font-size:smallButtonSize
+		padding:(smallButtonSize/2)
+	.btn-big
+			border-radius bigButtonSize
+			padding:(bigButtonSize/2);
+			font-size:bigButtonSize;
+	.btn-round
+		border-radius smallButtonSize
+	.btn-round-left
+		border-radius-left smallButtonSize
+	.btn-round-right
+		border-radius-right smallButtonSize
+	[dir="rtl"]
+		.btn-round-left
+			border-radius-left 0px
+			border-radius-right smallButtonSize
+		.btn-round-right
+			border-radius-right 0px
+			border-radius-left smallButtonSize
+	.thumb-container
+		height:(thumbnailRowHeight*3)
+		line-height:thumbnailRowHeight
+	.thumb-title
+		height:(thumbnailRowHeight*2)
+	.length-container
+		width:thumbnailWidth
+	#featured-page
+		.thumb-container
+			height:thumbnailLargeHeight
+			&:first-child
+				height:(1.7*thumbnailLargeHeight)
 
-dimensions(maxWidth,maxHeight,headerHeight,footerHeight,pageTitleHeight,margins,50%);
+dimensions(maxWidth,maxHeight,headerHeight,footerHeight,pageTitleHeight,thumbnailWidth,50%);
+//remember to define visible focus styles! 
+//:focus{outline:?????;}
+html,body,#Body
+	height:100%;
+	width:100%;
+	bodyText()
+	
+#Body
+	height:480px
+	width:320px
+	margin:0 auto
+	position:relative
+
+#Header
+	top:0
+	position:relative;
+
+#Footer
+	bottom:0
+	background:footerBackgroundColor
+	titleText()
+
+#Navigation
+	display:table;
+	width:100%;
+	height:100%;
+	a
+		display:table-cell;
+		text-align:center;
+		vertical-align:middle;
+		text-decoration:none;
+		
+#back
+	width:50px;
+	
+#Logo
+	float:right;
+	
+#Back-Container
+	position:absolute;
+	top:50%;
+	height:1px;
+	left:0;
+
+#Back
+	position:absolute;
+	float:left;
+	top:- (((smallButtonSize/2)*3)/2);
+	left:5px;
+	width:40px;

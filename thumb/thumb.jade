@@ -1,18 +1,19 @@
 include ../mixins/mixins
 
-mixin thumb-image(item,isThumb,id,classes)
+mixin thumb-image(item,isThumb,classes,id)
 	- var itemImage = isThumb ? "4.jpg" : "7.jpg"
 	- var width = isThumb ? "176" : "360";
 	- var height = isThumb ? "132" : "204";
-	- var className = 'thumb-image-'+(isThumb ? 'small' : 'big');
+	- var className = (isThumb ? 'small' : 'big');
 	- var src = 'http://cinemoz.com/media/cinemoz/'+item.id+'/'+itemImage;
-	a.thumb-link(href='#'+item.id,id=id||'',class=classes||'')
-		mixin img(src,item.title,width,height,className,1)
-
-mixin thumb-link(item,classes,id)
-	a.thumb-link(href='#'+item.id,id=id||'',class=classes||'')
+	a.thumb-link(href='#movie:'+item.id,class='thumb-link-image-'+className)
+		mixin img(src,item.title,width,height,'thumb-image-'+className,1)
 
 mixin thumb(item,i,count)
+	- var genre,n;
+	- for(n in item.genre){
+	- 	genre = item.genre[n];
+	- 	break;}
 	.thumb-container.container.wrapper(id=item.id+'-item',class="item-"+i+" item-"+(i==0? 'first' : (i==count-1)? 'last' : 'middle'))
 		.thumb-content
 				.thumb-media
@@ -20,29 +21,36 @@ mixin thumb(item,i,count)
 						mixin thumb-image(item,0)
 						mixin thumb-image(item,1)
 				.thumb-info
-					.thumb-title
-						mixin thumb-link(item)
-							item.title
-					p: strong
-						if item.actor
-							each a in item.actor
-								span.actor=a
-						if item.category
-							each c in item.category
-								span.category=c
-						if item.country
-							span.country=item.country
-						if item.director
-							each d in item.director
-								span.director=d
-						if item.genre
-							each g in item.genre
-								span.genre=g
+					.thumb-title= item.title
+					.thumb-details
+						if item.video.length
+							.length-container.tag-container
+								span.length.tag=item.video.length
+						.category-container.tag-container
+							if item.category
+								each c in item.category
+									span.category.tag(class=c)=c
+						.genre-container.tag-container
+							if item.genre
+								each g in item.genre
+									span.genre.tag(class=g)=g
+						.country-container.tag-container
+							if item.country
+								span.country.tag=item.country
+						.actor-container.tag-container
+							if item.actor
+								each a in item.actor
+									span.actor.tag=a
+						.director-container.tag-container
+							if item.director
+								each d in item.director
+									span.director.tag=d
 						if item.serie
-							span.serie=item.serie
-						if item.length
-							span.length=item.length
+							.series-container.tag-container
+								span.series.tag=item.serie
 						if item.year
-							span.year=item.year
+							.year-container.tag-container
+								span.year.tag=item.year
 					if item.synopsis
-						p.synopsis=item.synopsis
+						.synopsis.tag=item.synopsis
+				a.thumb-link.thumb-button(href='#movie:'+item.id)

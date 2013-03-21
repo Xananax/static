@@ -9,25 +9,23 @@
 .content
 	width:100%
 	height:100%
-	line-height:2
 	border-box()
 
 .btn
 	display:block
-	font-size:smallButtonSize
 	line-height:0.5
 	margin:0
-	padding:(smallButtonSize/2)
 	text-align:center
 	cursor:pointer
 	background:green
-	border-radius smallButtonSize
 	border-size:1px
 	border-box()
-.btn-big
-		border-radius bigButtonSize
-		padding:(bigButtonSize/2);
-		font-size:bigButtonSize;
+	background:buttonBackColor
+	color:buttonFrontColor;
+	text-decoration:none;
+	&:hover, &.active
+		background:buttonHoverBackColor;
+		color:buttonHoverFrontColor;
 
 .valign-container
 	position:absolute;
@@ -62,3 +60,28 @@
 	display:none;
 	&.active
 		display:block;
+
+.top,.bottom,.left,.right
+	position:absolute
+
+.top
+	top:0
+
+.bottom
+	bottom:0
+
+.maxHeight
+	top:0
+	bottom:0
+	position:absolute;
+
+.image
+	display:inline-block;
+	-webkit-background-size: 100% auto;
+	-moz-background-size: 100% auto;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-box-shadow: rgba(0,0,0,0.20) 0 10px 10px;
+	-moz-box-shadow: rgba(0,0,0,0.20) 0 10px 10px;
+	box-shadow: rgba(0,0,0,0.20) 0 10px 10px;

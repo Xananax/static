@@ -1,3 +1,122 @@
 .thumb-container
-	overflow-y:hidden;
-	height:40px;
+	overflow:hidden
+	margin-bottom:1px;
+	border-box();
+
+.thumb-content
+	height:100%
+	width:100%
+	position:absolute
+	top:0
+
+.thumb-info,.thumb-media,.thumb-details
+	height:100%
+
+.thumb-info,.thumb-media,.thumb-details,.thumb-title,.tag-container,.category
+	float:right
+
+.thumb-media 
+	text-align:center;
+
+.thumb-info
+	left:20px //remove
+	top:0
+	bottom:0
+	position:absolute;
+
+.thumb-link-image-big,.thumb-link-image-small
+	display:block;
+	line-height:0;
+	height:100%;
+	width:100%;
+	background: #fff url('images/loading.gif') 50% 50% no-repeat
+
+.thumb-link-image-big .image,.thumb-link-image-small .image
+	height:100%;
+	width:100%;
+
+.thumb-title
+	display:block;
+	width:100%;
+	titleText();
+	border-box()
+
+.thumb-details
+	width:100%;
+
+.thumb-button
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	display:none//remove
+	
+.category
+	background:url('images/categories.png') right top no-repeat;
+	width:100%;
+	height:100%;
+	text-indent:-9999px
+	&.فيلم
+		background-position:right 0;
+	&.فيلم //mousalsal
+		background-position:right 25px;
+	&.فيلم //wasa2iki
+		background-position:right 50px;
+	&.فيلم //short
+		background-position:right 75px;
+		
+.category-container
+	width:25px;
+	background:teal;
+	overflow:hidden
+	&:hover
+		width:75px;
+
+.length-container
+	position:absolute;
+	bottom:0;
+	text-align:center;
+	background:thumbnailTimeBackgroundColor 
+	border-box()
+	vertical-align:center;
+
+.tag-container, .tag
+	margin-left:10px;
+	display:inline;
+
+.synopsis
+	display:none;
+
+#search-page
+	.thumb-link-image-big
+		display:none;
+		
+#featured-page
+	.thumb-container
+		width:50%
+		padding:1px;
+		float:right;
+		&:first-child
+			width:100%
+	.thumb-media, .thumb-info
+		position:absolute;
+		width:100%;
+		height:100%;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0
+	.thumb-title
+		position:absolute;
+		width:100%;
+		text-align:center;
+		bottom:0
+		right:0;
+		height:auto;
+		background:thumbnailTimeBackgroundColor 
+		padding:5px;
+	.thumb-link-image-small
+		display:none;
+	.thumb-details
+		display:none;
