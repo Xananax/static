@@ -13,3 +13,48 @@
 	titleText();
 	font-size:200%
 	color:pageTitleColor
+.search-form
+	position:absolute;
+	top:headerHeight;
+	border-box();
+	width:100%;
+	padding:2px;
+	z-index:4;
+.filters-container
+	display:table;
+.filter
+	margin:0;
+	padding:0;
+	display:block;
+	float:right;
+	display:table-cell;
+	border-box();
+	width:25%;
+.search-container, .filters-container
+	float:right;
+	width:100%
+.search-submit,.search-field
+	display:block
+	float:right
+	padding:0
+	margin:0
+	border:0
+.search-container
+	position:relative
+.search-submit
+	width:searchButtonWidth
+	height:searchButtonHeight
+	position:absolute
+	left:0
+.search-field
+	position:absolute
+	left:searchButtonWidth
+	right:0
+	height:searchButtonHeight
+	padding:(searchButtonHeight/4)
+	border-box();
+	border:1px solid #ccc;
+/*!
+	input,textarea,select,option
+	  -webkit-appearance: none;
+*/

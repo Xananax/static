@@ -6,19 +6,20 @@ pageTitleHeight = 50px;
 modalBackgroundOverlay = rgba(0,0,0,0.5);
 modalBackground = rgba(255,255,255,1);
 modalBorderRadius = 5px;
-bigButtonSize = 30px;
-smallButtonSize = 16px;
+bigButtonSize = 45px;
+smallButtonSize = 26px;
 closeButtonSize = bigButtonSize;
 thumbnailRowHeight = 25px;
 thumbnailHeight = (3*thumbnailRowHeight);
 thumbnailWidth = 100px;
 thumbnailDetailsMargin = 2px;
 thumbnailTimeBackgroundColor = rgba(0,0,0,.5);
+thumbnailTimeForegroundColor = white;
 thumbnailLargeHeight = (4*thumbnailRowHeight);
 pageBakgroundColor = white;
 pageTitleColor = rgba(0,0,0,.3);
-headerBackgroundColor = rgba(255,0,0,1);
-footerBackgroundColor = rgba(255,0,0,1);
+headerBackgroundColor = rgba(0,0,0,1);
+footerBackgroundColor = rgba(0,0,0,1);
 baseFontSize = 16px;
 titleFont = 'Droid Arabic Kufi', Helvetica, Arial, sans-serif
 bodyFont = 'Droid Arabic Naskh', Helvetica, Arial, sans-serif
@@ -27,9 +28,11 @@ buttonFrontColor = white;
 buttonBackColor = black;
 buttonHoverFrontColor = black;
 buttonHoverBackColor = rgba(255, 181, 9,1)
+searchButtonWidth = 45px;
+searchButtonHeight = smallButtonSize;
 
-@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
-@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+@import url('http://fonts.googleapis.com/earlyaccess/droidarabickufi.css');
+@import url('http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css');
 @import "mixins";
 @import "bootstrap";
 @import "page";
@@ -64,12 +67,16 @@ dimensions()
 	#Header
 		height:footerHeight
 	.btn
-		font-size:smallButtonSize
-		padding:(smallButtonSize/2)
+		font-size:((smallButtonSize/3)*2)
+		height:smallButtonSize
+		padding:(smallButtonSize/4)
+		line-height:(smallButtonSize/2)
 	.btn-big
-			border-radius bigButtonSize
-			padding:(bigButtonSize/2);
 			font-size:bigButtonSize;
+			height:bigButtonSize;
+			padding:(bigButtonSize/4);
+			line-height:(bigButtonSize/2)
+			border-radius (bigButtonSize/2)
 	.btn-round
 		border-radius smallButtonSize
 	.btn-round-left
@@ -106,7 +113,7 @@ html,body,#Body
 	
 #Body
 	height:480px
-	width:320px
+	width:340px
 	margin:0 auto
 	position:relative
 
@@ -144,6 +151,6 @@ html,body,#Body
 #Back
 	position:absolute;
 	float:left;
-	top:- (((smallButtonSize/2)*3)/2);
+	top:-(smallButtonSize/2)
 	left:5px;
 	width:40px;

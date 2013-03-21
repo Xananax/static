@@ -5,11 +5,12 @@ require.config({
 	}
 ,	shim: {
 		'thirdparty/colorpicker': ['thirdparty/jquery']
+	,	'templates': {'exports':'jade'}
 	}
 ,   waitSeconds : 1
 });
 
-require(["jquery"],function($){
+require(["jquery","templates"],function($,jade){
 
 	var	elCache = {}
 	,	$w = $(window)

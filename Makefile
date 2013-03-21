@@ -26,6 +26,9 @@ html-clean:
 	@echo "cleaning out html files"
 	@rm $(OUT)/*.html ||:
 
+html-client:
+	$(NODE_BIN)/clientjade $(IN)/thumb/thumb.jade > $(IN)/templates.js
+
 css:
 	@echo "compiling minified css"
 	@$(NODE_BIN)/stylus --out $(OUT) $(IN)/styles.styl
@@ -42,11 +45,11 @@ css-clean:
 	@echo "cleaning out css files"
 	@rm $(OUT)/*.css ||:
 
-js: js-statics
+js: js-statics html-client
 	@echo "compressing js files"
 	@$(NODE_BIN)/r.js -o mainConfigFile=main.js name=main out=$(OUT)/main.js optimize=uglify2
 
-js-debug: js-statics
+js-debug: js-statics html-client
 	@echo "copying all js files to target directory"
 	@rsync -avm --include='*.js' -f 'hide,! */' . $(OUT)  --exclude 'components/' --exclude 'node_modules/'
 	##@find . \( -name node_modules -o -name components \) -prune -o -name "*.js" | cpio -pdm $(OUT)

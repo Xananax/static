@@ -1,5 +1,17 @@
 include ../thumb/thumb
 
 .content
-	each item,i in page.data.titles
-		mixin thumb(item,i)
+	if page.filter
+		form.search-form(name=page.id+'-form',id=page.id+'-form')
+			.filters-container		
+				each filter,i in filters
+					select.filter(name=filter.name,id=page.id+'-'+filter.name+'-filter',tabindex=(i+2))
+						option.filter-label(value="",disabled="disabled",selected="selected")= filter.label
+						each opt in filter.options
+							option(value=opt.value)=opt.label
+			.search-container
+				input.search-field(type="search", name="search",id=page.id+"-search-filter",tabindex=1)
+				input.btn.search-submit(type="submit",value="&rsaquo;",id=page.id+'-search-submit',tabindex=(filters.length+2))
+	.thumbs-container
+		each item,i in page.data.titles
+			mixin thumb(item,i)
