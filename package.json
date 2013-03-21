@@ -1,0 +1,23 @@
+{
+  "name": "moz",
+  "version": "0.0.1",
+  "description": "clone",
+  "main": "main.js",
+  "dependencies": {
+    "requirejs": "~2.1.5",
+    "stylus": "~0.32.1",
+    "jade": "~0.28.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Xananax/static.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "4766b5cf5a9d8e4f1859b6bb7dbfe4c38f76942f"
+}
