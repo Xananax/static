@@ -65,6 +65,7 @@ js-statics: build-dirs
 
 js-clean:
 	echo "cleaning out js files"
+	@rm -r $(OUT)/components ||:
 	@rm $(OUT)/*.js ||:
 	@rm -r $(OUT)/**/*.js ||:
 

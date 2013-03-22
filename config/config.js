@@ -40,12 +40,12 @@
 		,	"menu":false
 		}
 	,	{
-			"title":"فيلم | %s"
+			"title":"فيلم"
 		,	"menuTitle":"فيلم"
-		,	"id":"video"
-		,	"template":"text"
+		,	"id":"movie"
+		,	"template":"movie"
 		,	"content":"Lorem Ipsum Dolores Amet weird quirk to have to deal with, although the fix was usually as easy as setting a proper DOCTYPE and getting out of quirks mode. More to the point, some people prefered this handling of the box model, claiming it to be more intuitive. It's a valid point. Having the actual visible width of a box not be what you declared in the CSS is a bit mind bending.<br>The mind bending continues with the modern implementation. Let's say you have a block-level element like a <div> on the page. It's within another parent <div> with a width of 500px. The child div will automatically default to 100% as wide as the parent (500px) without any special CSS. That's how block-level elements work. But now let's say you add 10px of padding all around and a 2px border. The child div will behave like the old quirks-mode box and the padding and border will cut into the box. The visible box will remain 500px in width. Now if you go and explicitly declare the width of that child div to be 100%, the div will actually grow and break out of the parent. The width will start at 500px, but then 10px of padding and 2px of border on either side will leave the visible box at 524px.<br>If you wanted to ensure the box kissed the edges of the parent, but still use a 100% width declaration, you'd have to set the child divs width to 476px. But now we've run into a problem, and that's fluid width design. Let's say instead of the parent being 500px, you use 72%. Now what do you set the inner divs width to be to make sure it kisses the edges? There is no answer with the current box model. The percentages mixed with pixel values just don't mix well. Setting the inner divs width to 95.2% will work when the parent just happens to be exactly 500px, but if it grows wider, as happens in fluid width design, the div will be too narrow, and if the parent grows narrower, the inner div will be too wide and break out of the parent."
-		,	"menu":false
+		,	"menu":true
 		}
 	]
 ,	"filters":[

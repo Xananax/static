@@ -1,7 +1,9 @@
 require.config({
 	baseUrl : "./"
 ,	paths: {
-		"jquery" : "components/jquery/jquery",
+		"jquery" : "components/jquery/jquery"
+	,	"brightcove":"third-party/brightcove/index"
+	,	"race":"js/race"
 	}
 ,	shim: {
 		'thirdparty/colorpicker': ['thirdparty/jquery']
@@ -9,13 +11,34 @@ require.config({
 	}
 ,   waitSeconds : 1
 });
+	
+require(["jquery","templates","brightcove","race"],function($,jade,BCL,race){
 
-require(["jquery","templates"],function($,jade){
+	var ready = race('dom','repo','brightcove',function(){console.log('all good!')});
+
+	ready('repo')();
+
+	console.log('dfsdfsd')
 
 	var	elCache = {}
 	,	$w = $(window)
 	,	defaultPage = '#featured'
 	;
+
+	BCL.setup({
+		insertInto:'#Player'
+	,	log:false
+	,	player:{
+			'width':'100%'
+		,	'height':'50%'
+		//,	'wmode':'opaque'
+		//,	"@videoPlayer":"2112931747001"
+		}
+	})
+	.on('*',function(evt){
+		console.log('::-[ bc event ]-::',evt);
+	})
+	.init(ready('bc'));
 
 	function getEl(el){
 		if(!elCache.hasOwnProperty(el)){
@@ -59,13 +82,15 @@ require(["jquery","templates"],function($,jade){
 
 	$(document).ready(function() {
 			
+		ready('dom')();
+
 		$("a[href^=#]").on("click", function(evt){
 			evt.preventDefault();
 			var hash = '#'+this.href.split('#').pop()
 			route(hash);
 			history.pushState({}, "", hash);
 		});
-			
+
 		route(location.hash || null);
 
 	});

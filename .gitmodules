@@ -1,0 +1,3 @@
+[submodule "third-party/brightcove"]
+	path = third-party/brightcove
+	url = git@github.com:cinemoz/BrightCoveWrapper.git
