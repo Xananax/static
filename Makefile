@@ -56,8 +56,8 @@ js-debug: js-statics html-client
 	@mkdir -p $(OUT)/components/jquery
 	@cp components/jquery/jquery.js $(OUT)/components/jquery/jquery.js
 
-js-watch: js-debug
-	##@find . \( -name node_modules -o -name components \) -prune -o -name "*.js" -execdir ln -s out/{}
+js-watch: 
+	ln -s ../components ../third-party ../js ../bootstrap ../main.js -t $(OUT)
 
 js-statics: build-dirs
 	@echo "copying requirejs"
@@ -66,6 +66,9 @@ js-statics: build-dirs
 js-clean:
 	echo "cleaning out js files"
 	@rm -r $(OUT)/components ||:
+	@rm -r $(OUT)/third-party ||:
+	@rm -r $(OUT)/js ||:
+	@rm -r $(OUT)/bootstrap ||:
 	@rm $(OUT)/*.js ||:
 	@rm -r $(OUT)/**/*.js ||:
 
