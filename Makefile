@@ -56,8 +56,8 @@ js-debug: js-statics html-client
 	@mkdir -p $(OUT)/components/jquery
 	@cp components/jquery/jquery.js $(OUT)/components/jquery/jquery.js
 
-js-watch: 
-	ln -s ../components ../third-party ../js ../bootstrap ../main.js -t $(OUT)
+js-watch: html-client 
+	ln -s ../components ../third-party ../js ../bootstrap ../main.js ../templates.js -t $(OUT)
 
 js-statics: build-dirs
 	@echo "copying requirejs"

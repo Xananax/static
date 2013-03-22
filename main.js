@@ -25,21 +25,6 @@ require(["jquery","templates","brightcove","race"],function($,jade,BCL,race){
 	,	defaultPage = '#featured'
 	;
 
-	BCL.setup({
-		insertInto:'#Player'
-	,	log:false
-	,	player:{
-			'width':'100%'
-		,	'height':'50%'
-		//,	'wmode':'opaque'
-		//,	"@videoPlayer":"2112931747001"
-		}
-	})
-	.on('*',function(evt){
-		console.log('::-[ bc event ]-::',evt);
-	})
-	.init(ready('bc'));
-
 	function getEl(el){
 		if(!elCache.hasOwnProperty(el)){
 			elCache[el] = $(el);
@@ -76,6 +61,7 @@ require(["jquery","templates","brightcove","race"],function($,jade,BCL,race){
 		;
 		getEl('.page').not($page.addClass('active')).removeClass('active');
 		getEl('#Navigation a').not($link.addClass('active')).removeClass('active');
+		console.log(pageId);
 	}
 
 	$w.on('hashchange',function(){route(location.hash);})
@@ -90,6 +76,21 @@ require(["jquery","templates","brightcove","race"],function($,jade,BCL,race){
 			route(hash);
 			history.pushState({}, "", hash);
 		});
+
+		BCL.setup({
+			insertInto:'#Player'
+		,	log:false
+		,	player:{
+				'width':'100%'
+			,	'height':'50%'
+			//,	'wmode':'opaque'
+			//,	"@videoPlayer":"2112931747001"
+			}
+		})
+		.on('*',function(evt){
+			console.log('::-[ bc event ]-::',evt);
+		})
+		.init(ready('bc'));
 
 		route(location.hash || null);
 
